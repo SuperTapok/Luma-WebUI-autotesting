@@ -1,27 +1,25 @@
-package page;
+package element;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import page.Catalog;
 
-import java.sql.Time;
-import java.time.Duration;
-
+import static configuration.Settings.actions;
 import static configuration.Settings.driver;
 
-public class MainPage {
+import java.time.Duration;
 
-    private final Actions actions = new Actions(driver);
+public class Header {
     private final WebElement menBtn = new WebDriverWait(driver, Duration.ofSeconds(1))
             .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='ui-id-5']")));
+
     private final WebElement menTopsBtn = new WebDriverWait(driver, Duration.ofSeconds(1))
             .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='ui-id-17']")));
 
-    public CatalogPage clickButtonMenTopsBtn() {
+    // methods
+    public Catalog clickButtonMenTopsBtn() {
         actions.moveToElement(menBtn).pause(Duration.ofSeconds(1)).click(menTopsBtn).perform();
-        return new CatalogPage();
+        return new Catalog();
     }
-
 }
