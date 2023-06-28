@@ -1,30 +1,26 @@
-package page;
+package selenium.page;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-import static configuration.Settings.driver;
-import static configuration.Settings.waiter;
+public class CatalogPage extends BasePage{
+    private final By categoryListBtn = By.xpath("//*[@id=\"narrow-by-list\"]/div[1]"),
+                     categoryLinksList = By.xpath("//div[text()='Category']" +
+                             "//following-sibling::div[@data-role='content']//a"),
+                     productCards = By.xpath("//div[@class='column main']//ol//strong//a"),
+                     nextPageBtn = By.xpath("//li[contains(@class, 'pages-item-next')]");
 
-public class Catalog {
-    private final WebElement categoryListBtn = driver.findElement(
-            By.xpath("//*[@id=\"narrow-by-list\"]/div[1]"));
+    public CatalogPage(WebDriver driver) {
+        super(driver);
+    }
 
-    private List<WebElement> categoryLinksList;
+    public CatalogPage changeCategory(String categoryName) {
+        driver.findElement(categoryListBtn).click();
+        waitUntilVisibilityOfAll(categoryLinksList, Duration.ofSeconds(1));
 
-    private List<WebElement> productCards;
-
-    private WebElement nextPageBtn;
-
-    public Catalog changeCategory(String categoryName) {
-        categoryListBtn.click();
-        categoryLinksList = waiter.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                By.xpath("//div[text()='Category']//following-sibling::div[@data-role='content']//a")));
-
-        for (WebElement categoryLink : categoryLinksList) {
+        for (WebElement categoryLink : driver.findElements(categoryLinksList)) {
             if (categoryLink.getAttribute("text").contains(categoryName)) {
                 categoryLink.click();
 
@@ -58,10 +54,9 @@ public class Catalog {
 
     public List<String> getProductsNames() {
         List<String> productNames = new ArrayList<>();
-        productCards = waiter.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
-                By.xpath("//div[@class='column main']//ol//strong//a")));
+        waitUntilPresenceOfAll(productCards, Duration.ofSeconds(1));
 
-        for (WebElement cardLink : productCards) {
+        for (WebElement cardLink : driver.findElements(productCards)) {
             productNames.add(cardLink.getAttribute("text"));
         }
 
@@ -71,7 +66,7 @@ public class Catalog {
 
     public boolean clickBtnNextPageBtn(){
         if (isNextPageBtnExist()){
-            nextPageBtn.click();
+            driver.findElements(nextPageBtn).get(1).click();
 
             return true;
         }
@@ -81,8 +76,8 @@ public class Catalog {
 
     public boolean isNextPageBtnExist(){
         try {
-            nextPageBtn = waiter.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
-                    By.xpath("//li[contains(@class, 'pages-item-next')]"))).get(1);
+            waitUntilPresenceOfAll(nextPageBtn, Duration.ofSeconds(1));
+
         } catch (TimeoutException e) {
             return false;
         }

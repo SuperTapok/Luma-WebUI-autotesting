@@ -1,19 +1,16 @@
 package test.catalog;
 
 import org.junit.jupiter.api.*;
-import page.Home;
 import test.BaseTest;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class CatalogTest extends BaseTest {
+public class CatalogPageTest extends BaseTest {
     @Test
     void categoryFiltrationTest(){
         /*
-        Checking product filtration for "Hoodies & Sweatshirts" category
+        Checking product filtration for "Tanks" category
          */
-        Home homePage = new Home();
-
         String categoryName = "Tank";
 
         catalogPage = homePage.getHeader().clickButtonMenTopsBtn();
