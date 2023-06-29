@@ -2,6 +2,7 @@ package selenium.page;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -25,7 +26,19 @@ public class BasePage {
         new WebDriverWait(driver, duration).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
     }
 
+    protected void waitUntilVisibilityOfAll (WebElement webElement, Duration duration){
+        new WebDriverWait(driver, duration).until(ExpectedConditions.visibilityOfAllElements(webElement));
+    }
+
     protected void waitUntilPresenceOfAll (By locator, Duration duration){
         new WebDriverWait(driver, duration).until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
+    }
+
+//    protected void waitUntilInteractable (By locator, Duration duration){
+//        new WebDriverWait(driver, duration).until(ExpectedConditions.elementToBeClickable(locator));
+//    }
+//
+    protected void waitUntilInteractable (WebElement element, Duration duration){
+        new WebDriverWait(driver, duration).until(ExpectedConditions.elementToBeClickable(element));
     }
 }
