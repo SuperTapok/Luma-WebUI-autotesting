@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class ShoppingCartPage extends BasePage{
-    private By itemInfo = By.xpath("//tr[@class=\"item-info\"]");
+    private final By itemInfo = By.xpath("//tr[@class=\"item-info\"]");
 
     public ShoppingCartPage(WebDriver driver) {
         super(driver);

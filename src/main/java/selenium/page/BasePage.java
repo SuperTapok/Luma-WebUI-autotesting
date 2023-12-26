@@ -34,11 +34,4 @@ public class BasePage {
         new WebDriverWait(driver, duration).until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
     }
 
-//    protected void waitUntilInteractable (By locator, Duration duration){
-//        new WebDriverWait(driver, duration).until(ExpectedConditions.elementToBeClickable(locator));
-//    }
-//
-    protected void waitUntilInteractable (WebElement element, Duration duration){
-        new WebDriverWait(driver, duration).until(ExpectedConditions.elementToBeClickable(element));
-    }
 }
