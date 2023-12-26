@@ -1,7 +1,7 @@
-package selenium.page;
+package Luma.page;
 
 import org.openqa.selenium.WebDriver;
-import selenium.element.Header;
+import Luma.element.Header;
 
 
 public class HomePage extends BasePage{

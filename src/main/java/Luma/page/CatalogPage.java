@@ -1,7 +1,7 @@
-package selenium.page;
+package Luma.page;
 
 import org.openqa.selenium.*;
-import selenium.element.Header;
+import Luma.element.Header;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,7 @@
-package test.catalog;
+package Luma.catalog;
 
 import org.junit.jupiter.api.*;
-import test.BaseTest;
+import Luma.BaseTest;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

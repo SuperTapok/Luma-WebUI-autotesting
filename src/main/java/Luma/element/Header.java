@@ -1,9 +1,9 @@
-package selenium.element;
+package Luma.element;
 
 import org.openqa.selenium.*;
-import selenium.page.BasePage;
-import selenium.page.CatalogPage;
-import selenium.page.ShoppingCartPage;
+import Luma.page.BasePage;
+import Luma.page.CatalogPage;
+import Luma.page.ShoppingCartPage;
 
 import java.time.Duration;
 
