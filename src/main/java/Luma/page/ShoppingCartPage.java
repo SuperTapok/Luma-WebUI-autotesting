@@ -1,4 +1,4 @@
-package selenium.page;
+package Luma.page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

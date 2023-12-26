@@ -1,8 +1,8 @@
-package test.shoppingCart;
+package Luma.shoppingCart;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import test.BaseTest;
+import Luma.BaseTest;
 
 public class ShoppingCartTest extends BaseTest {
     /**

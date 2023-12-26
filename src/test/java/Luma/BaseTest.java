@@ -1,12 +1,12 @@
-package test;
+package Luma;
 
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
-import selenium.page.CatalogPage;
-import selenium.page.HomePage;
-import selenium.page.ShoppingCartPage;
+import Luma.page.CatalogPage;
+import Luma.page.HomePage;
+import Luma.page.ShoppingCartPage;
 
-import static selenium.configuration.Settings.*;
+import static configuration.Settings.*;
 
 public class BaseTest {
     protected WebDriver driver;
